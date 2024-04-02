@@ -1,11 +1,9 @@
+import { Button } from "./components/button"
 
 
 function App() {
   return (
-    <div className='bg-primaryPink '>
-      Hello World!
-    </div>
-
+    <Button />
   )
 }
 

@@ -6,10 +6,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      regular: ["Regular", ...defaultTheme.fontFamily.sans],
+      inter: ["Inter"]
+    },
     extend: {
-      fontFamily: {
-        'sans': ['"Inter"', ...defaultTheme.fontFamily.sans],
-      },
       colors: {
         primaryPink: "#EB568E",
         primaryBlue: "#144EE3",
