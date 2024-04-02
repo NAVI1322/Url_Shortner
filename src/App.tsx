@@ -1,12 +1,15 @@
 
 import './App.css'
-import { AppBar } from './comps/AppBar'
+// import { AppBar } from './components/AppBar'
+
+import { Table } from './comps/Table'
+
 
 function App() {
   return (
     <div>
-      <AppBar/>
-      Hello World!
+   <Table />
+  
     </div>
 
   )
