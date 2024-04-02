@@ -1,9 +1,17 @@
 import { Button } from "./components/button"
 
+import './App.css'
+
+import { Table } from './comps/Table'
+
 
 function App() {
   return (
-    <Button />
+    <div>
+      <Table />
+
+    </div>
+
   )
 }
 

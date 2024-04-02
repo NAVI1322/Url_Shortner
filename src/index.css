@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,3 +27,6 @@
     font-family: "SF-Pro-Display-Regular", system-ui, sans-serif;
   }
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

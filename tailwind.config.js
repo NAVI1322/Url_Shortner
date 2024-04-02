@@ -14,12 +14,15 @@ export default {
       colors: {
         primaryPink: "#EB568E",
         primaryBlue: "#144EE3",
-        Black: "0B101B",
-        Grey: "181E29",
-        White: "C9CED6"
+        Black: "#0B101B",
+        Grey: "#181E29",
+        White: "#C9CED6",
+        tablerowgrey: '#181E2938',
+        tableheadgrey: '#181E29'
       },
     },
   },
   plugins: [],
 }
+
 
