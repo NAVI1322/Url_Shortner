@@ -1,9 +1,8 @@
 
-import './App.css'
 
 function App() {
   return (
-    <div>
+    <div className='bg-primaryPink '>
       Hello
     </div>
 
