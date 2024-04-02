@@ -3,9 +3,8 @@
 function App() {
   return (
     <div className='bg-primaryPink '>
-      Hello
+      Hello World!
     </div>
-
 
   )
 }
