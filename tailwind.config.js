@@ -22,9 +22,17 @@ export default {
         tablerowgrey: '#181E2938',
         tableheadgrey: '#181E29'
       },
+      extend: {
+        colors: {
+          tablerowgrey: '#0e131e',
+          tableheadgrey: '#171e29',
+          tabletext: '#c9ced7',
+          dropIcon: '#0e131e',
+          bottom: ''
+        }
+      },
     },
-  },
-  plugins: [],
+    plugins: [],
+  }
 }
-
 
