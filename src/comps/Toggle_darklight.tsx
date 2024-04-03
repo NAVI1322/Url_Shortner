@@ -18,7 +18,7 @@ export const ToggleDarklight= () => {
         />
         <span
           className={`flex items-center space-x-[6px] rounded-full py-2 px-[18px] text-sm font-thin  text-white ${
-            !isChecked ? ' text-white bg-[#f4f7ff] font-medium' : 'text-body-color '
+            !isChecked ? ' text-black   bg-[#f4f7ff] font-medium ' : 'text-body-color '
           }`}
         >
           <svg
