@@ -20,7 +20,7 @@ export default {
         Grey: "#181E29",
         White: "#C9CED6",
         tablerowgrey: '#181E2938',
-        tableheadgrey: '#181E29'
+        tableheadgrey: '#181E29',
       },
       extend: {
         colors: {

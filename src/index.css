@@ -4,6 +4,15 @@
 @tailwind utilities;
 
 @font-face{
+  font-family: "Thin";
+  src: url("/font/SF-Pro-Display-Thin.otf")
+}
+@font-face{
+  font-family: "Light";
+  src: url("/font/SF-Pro-Display-Light.otf")
+}
+
+@font-face{
   font-family: "Regular";
   src: url("/font/SF-Pro-Display-Regular.otf")
 }
