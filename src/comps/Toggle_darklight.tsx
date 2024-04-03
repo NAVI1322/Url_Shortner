@@ -9,7 +9,7 @@ export const ToggleDarklight= () => {
 
   return (
     <>
-      <label className='themeSwitcherTwo shadow-card relative inline-flex cursor-pointer select-none items-center justify-center rounded-full bg-slate-300 p-1'>
+      <label className='themeSwitcherTwo shadow-card relative inline-flex cursor-pointer select-none items-center justify-center rounded-full bg-tableheadgrey p-1 '>
         <input
           type='checkbox'
           className='sr-only'
@@ -17,8 +17,8 @@ export const ToggleDarklight= () => {
           onChange={handleCheckboxChange}
         />
         <span
-          className={`flex items-center space-x-[6px] rounded-full py-2 px-[18px] text-sm font-medium  ${
-            !isChecked ? 'text-primary bg-[#f4f7ff]' : 'text-body-color'
+          className={`flex items-center space-x-[6px] rounded-full py-2 px-[18px] text-sm font-thin  text-white ${
+            !isChecked ? ' text-white bg-[#f4f7ff] font-medium' : 'text-body-color '
           }`}
         >
           <svg
@@ -43,8 +43,8 @@ export const ToggleDarklight= () => {
           Light Mode
         </span>
         <span
-          className={`flex items-center space-x-[6px] rounded-full py-2 px-[18px] text-sm font-medium ${
-            isChecked ? 'text-gray-100 bg-blue-700' : 'text-body-color'
+          className={`flex items-center space-x-[6px] rounded-full py-2 px-[18px] text-sm font-thin text-white ${
+            isChecked ? 'text-gray-100 font-medium bg-blue-700' : 'text-body-color'
           }`}
         >
           <svg
