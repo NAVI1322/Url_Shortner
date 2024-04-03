@@ -8,7 +8,7 @@ export const Table = () => {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex  items-center justify-center">
       {/* Table */}
       <table className="table-auto md:w-[1421px] rounded-t-lg overflow-hidden w-[376px]">
         <thead className="h-[63px]">
