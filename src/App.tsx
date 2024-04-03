@@ -1,6 +1,6 @@
 
 import './App.css'
-// import { AppBar } from './components/AppBar'
+ //import { AppBar } from './comps/AppBar'
 
 import { Table } from './comps/Table'
 
@@ -8,8 +8,8 @@ import { Table } from './comps/Table'
 function App() {
   return (
     <div>
-   <Table />
   
+   <Table />
     </div>
 
   )
