@@ -12,7 +12,7 @@ function App() {
     <div>
     
      <AppBar />                                        
-     <div className="flex justify-center">   <ToggleDarklight /></div>                                                                 
+     <div className="flex justify-center ">   <ToggleDarklight /></div>                                                                 
    <Table />
  
    <div className="fixed bottom-0 w-full flex justify-center sm:justify-center  font-extralight bg-gradient-to-b from-transparent to-tablerowgrey ">
