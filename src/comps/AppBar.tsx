@@ -23,7 +23,7 @@ export const AppBar = () => {
             </svg>
           </div>
         </div>
-        <div className="flex text-white text-[16px] font-semibold bg-blue-600 items-center rounded-full px-6 shadow-lg shadow-blue-500">
+        <div className="flex text-white text-[16px] font-semibold bg-blue-600 items-center rounded-full px-6 shadow-[10px_10px_20px_rgba(20,78,227,1)]">
           Register Now
         </div>
       </div>
