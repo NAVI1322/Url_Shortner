@@ -7,8 +7,10 @@ export default {
   theme: {
     extend: {
       colors:{
-        tablerowgrey:'#181E2938',
-        tableheadgrey: '#181E29'
+        tablerowgrey:'#0e131e',
+        tableheadgrey: '#171e29',
+        tabletext:'#c9ced7',
+        dropIcon:'#0e131e'
       }
     },
 
