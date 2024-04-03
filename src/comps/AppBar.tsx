@@ -5,7 +5,7 @@ export const AppBar = () => {
         Linkly
       </div>
       <div className="flex gap-5">
-        <div className="flex rounded-full ring-1 ring-slate-200 bg-slate-700  px-5 py-1 text-white items-center font-semibold gap-2 md:py-3 md:px-5 cursor-pointer">
+        <div className="flex rounded-full ring-1 ring-slate-500 bg-slate-700  px-5 py-1 text-white items-center font-semibold gap-2 md:py-3 md:px-5 cursor-pointer">
           <div className=" text-[16px]  ">Login</div>
           <div className="">
             <svg

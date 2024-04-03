@@ -1,7 +1,7 @@
 export function Hero() {
   return (
     <div className=" flex items-center justify-center flex-col text-white ">
-      <div className=" md:w-[1421px] w-[378px] flex  flex-col justify-center items-center space-y-5 ">
+      <div className=" md:w-[1323px] pl-24 w-[378px] flex  flex-col justify-center items-center space-y-5 ">
         <div className=" text-center lg:text-6xl md:text-5xl text-3xl p-2 bg-clip-text font-extrabold bg-gradient-to-r from-pink-500 to-blue-600 text-transparent ">
           {`Shorten  Your  Loooonng Links :${")"}`}
         </div>
