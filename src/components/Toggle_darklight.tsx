@@ -8,7 +8,7 @@ export const ToggleDarklight= () => {
   }
 
   return (
-    <>
+    <div  className='fixed right-0 rotate-90 top-64 hidden md:flex ' >
       <label className='themeSwitcherTwo shadow-card relative inline-flex cursor-pointer select-none items-center justify-center ring-1  ring-slate-500 rounded-full bg-tableheadgrey p-1 '>
         <input
           type='checkbox'
@@ -62,7 +62,7 @@ export const ToggleDarklight= () => {
           Dark 
         </span>
       </label>
-    </>
+    </div>
   )
 }
 

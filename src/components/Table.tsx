@@ -8,11 +8,11 @@ export const Table = () => {
   };
 
   return (
-    <div className="flex items-center justify-center pl-24 md:w-[1323px] w-[376px]">
+    <div className="flex items-center justify-center mt-5">
       {/* Table */}
-      <table className="table-auto md:w-[13023px] rounded-t-lg overflow-hidden w-[376px]">
+      <table className="table-auto md:w-[1323px] rounded-t-lg overflow-hidden w-[376px] ">
         <thead className="h-[63px]">
-          <tr className="text-left text-sm  bg-tableheadgrey  text-tabletext ">
+          <tr className="text-left text-sm  bg-tableheadgrey  text-tabletext dark:text-white ">
             {/* Table Headers */}
             <th className="p-4">Shorten Links</th>
             <th className="p-4 hidden sm:table-cell">Original Links</th>
@@ -20,7 +20,7 @@ export const Table = () => {
             <th className="p-4 hidden md:table-cell">Clicks</th>
             <th className="p-4 hidden md:table-cell">Status</th>
             <th className=" p-4">
-            <div className="flex items-center gap-1">
+            <div className="items-center gap-1 hidden md:flex">
             Date
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody  >
-          <tr className="bg-tablerowgrey  text-tabletext text-sm font-thin h-[63px] ">
+          <tr className="bg-tablerowgrey  text-tabletext text-sm font-thin h-[63px] dark:text-white">
             {/* Table Data */}
             <td className="p-4  truncate ">Row 1, Column 1</td>
             <td className="p-4 hidden sm:table-cell ">Row 1, Column 2</td>
@@ -73,7 +73,7 @@ export const Table = () => {
                   </svg>
                 </button>
               </span>
-              <span className="hidden sm:inline">
+              <span className="hidden md:inline">
                 {" "}
                 {/* Hide content on small screens */}
                 Row 1, Column 6
