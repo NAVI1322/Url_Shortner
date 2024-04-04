@@ -8,9 +8,9 @@ export const Table = () => {
   };
 
   return (
-    <div className="flex  items-center justify-center">
+    <div className="flex items-center justify-center pl-24 md:w-[1323px] w-[376px]">
       {/* Table */}
-      <table className="table-auto md:w-[1421px] rounded-t-lg overflow-hidden w-[376px]">
+      <table className="table-auto md:w-[13023px] rounded-t-lg overflow-hidden w-[376px]">
         <thead className="h-[63px]">
           <tr className="text-left text-sm  bg-tableheadgrey  text-tabletext ">
             {/* Table Headers */}

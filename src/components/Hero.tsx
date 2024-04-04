@@ -7,6 +7,7 @@ export function Hero() {
       <div className=" md:w-[1421px] w-[378px] flex  flex-col justify-center items-center space-y-5 ">
         <div className=" text-center lg:text-6xl md:text-5xl text-4xl p-2 bg-clip-text font-extrabold bg-gradient-to-r from-primaryBlue via-primaryPink via-25% to-primaryBlue text-transparent ">
 
+
           {`Shorten  Your  Loooonng Links :${")"}`}
         </div>
 

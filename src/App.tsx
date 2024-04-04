@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './App.css'
 import Button from './components/button'
 import { Navbar } from './components/navbar'
@@ -5,6 +6,7 @@ import { Bottom } from './components/Bottom'
 import { Hero } from './components/Hero'
 
 import { Table } from './components/Table'
+
 
 function App() {
   return (
@@ -21,4 +23,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
