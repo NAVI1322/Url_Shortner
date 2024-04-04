@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import './App.css'
 import Button from './components/button'
 import { Navbar } from './components/navbar'
