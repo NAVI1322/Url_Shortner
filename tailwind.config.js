@@ -12,6 +12,7 @@ export default {
       semi: ["Semi-Bold", ...defaultTheme.fontFamily.sans],
       sfBold: ["Bold", ...defaultTheme.fontFamily.sans],
       Thin: ["Thin", ...defaultTheme.fontFamily.sans],
+      Light: ["Light", ...defaultTheme.fontFamily.sans],
       inter: ["Inter"]
     },
     extend: {

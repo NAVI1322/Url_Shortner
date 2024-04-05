@@ -1,7 +1,6 @@
 import Button from "./button"
-import { faLink } from "@fortawesome/free-solid-svg-icons"
+import { faLink, faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { ArrowRightIcon } from "@radix-ui/react-icons"
 
 export const Inputbar = () => {
   const handleClick = () => {
@@ -17,7 +16,7 @@ export const Inputbar = () => {
           Shorten Now!
         </Button>
         <Button onClick={handleClick} variant="round" className="sm:hidden">
-          <ArrowRightIcon />
+          <FontAwesomeIcon icon={faArrowRight} />
         </Button>
       </Button>
     </div>
