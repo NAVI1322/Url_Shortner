@@ -30,21 +30,15 @@
   font-family: "Semi-Bold";
 src:url("/font/SF-Pro-Display-Semibold.otf")
 }
-@font-face{
-  font-family: "Light";
-  src: url("/font/SF-Pro-Display-Light.otf")
-}
+
 
 @layer base {
-  html {
-    font-family: "SF-Pro-Display-Regular", system-ui, sans-serif;
+  html, body {
+    font-family: "Regular", system-ui, sans-serif;
     background-color:black;
   }
 }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
-    font-family: "Inter", sans-serif;
-    background: #0e131e;
-}
+

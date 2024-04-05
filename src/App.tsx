@@ -1,6 +1,4 @@
 
-import './App.css'
-import Button from './components/button'
 import { Navbar } from './components/navbar'
 import { Bottom } from './components/Bottom'
 import { Hero } from './components/Hero'
@@ -18,11 +16,11 @@ function App() {
         <Hero />
       </div>
       <div className="justify-center">
-      <Table />
+        <Table />
       </div>
       <div className="fixed bottom-0 w-full flex justify-center sm:justify-center bg-gradient-to-b from-transparent/70 to-tableheadgrey">
         <Bottom />
-      </div>    
+      </div>
     </div>
   )
 }

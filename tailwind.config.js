@@ -10,6 +10,8 @@ export default {
       regular: ["Regular", ...defaultTheme.fontFamily.sans],
       mid: ["Medium", ...defaultTheme.fontFamily.sans],
       semi: ["Semi-Bold", ...defaultTheme.fontFamily.sans],
+      sfBold: ["Bold", ...defaultTheme.fontFamily.sans],
+      Thin: ["Thin", ...defaultTheme.fontFamily.sans],
       inter: ["Inter"]
     },
     extend: {
