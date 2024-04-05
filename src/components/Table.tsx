@@ -11,17 +11,17 @@ export const Table = () => {
   return (
     <div className="flex items-center justify-center m-4">
       {/* Table */}
-      <table className="table-auto md:w-[1323px] rounded-t-lg overflow-hidden w-[376px] ">
+      <table className="table-auto md:w-[84%] rounded-t-lg overflow-hidden w-[376px] ">
         <thead className="h-[63px]">
-          <tr className="text-left text-sm  bg-tableheadgrey  text-tabletext text-base text-White dark:text-white ">
+          <tr className="text-left text-md  bg-tableheadgrey  text-tabletext text-base text-White dark:text-white ">
             {/* Table Headers */}
-            <th className="p-4 font-sfBold">Short Link</th>
-            <th className="p-4 hidden font-sfBold sm:table-cell">Original Link</th>
-            <th className="p-4 hidden font-sfBold sm:table-cell">QR Code</th>
-            <th className="p-4 hidden font-sfBold md:table-cell">Clicks</th>
-            <th className="p-4 hidden font-sfBold md:table-cell">Status</th>
+            <th className="p-4 font-sfBold text-White">Short Link</th>
+            <th className="p-4 hidden font-sfBold text-White sm:table-cell">Original Link</th>
+            <th className="p-4 hidden font-sfBold text-White sm:table-cell">QR Code</th>
+            <th className="p-4 hidden font-sfBold text-White md:table-cell">Clicks</th>
+            <th className="p-4 hidden font-sfBold text-White md:table-cell">Status</th>
             <th className=" p-4 font-sfBold">
-              <div className="flex items-center gap-2 hidden md:flex">
+              <div className="flex items-center gap-2 text-White hidden md:flex">
                 Date<CalendarIcon />
               </div>
             </th>
