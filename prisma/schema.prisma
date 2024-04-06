@@ -15,6 +15,7 @@ model Url {
   clickCount Int
   status String 
   createdAt DateTime
+  user_id 
 }
 
 model User {
