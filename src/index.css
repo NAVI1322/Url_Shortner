@@ -35,7 +35,7 @@ src:url("/font/SF-Pro-Display-Semibold.otf")
 @layer base {
   html, body {
     font-family: "Regular", system-ui, sans-serif;
-    background-color:black;
+    background-color: #0c101b;
   }
 }
 @tailwind base;

@@ -1,5 +1,4 @@
 
-
 export function Bottom() {
   return (
     <div className="flex justify-center backdrop-blur-sm items-center md:w-[1421px] md:h-[148px] w-[479px] h-[148px] lg:w-full text-White font-mid ">
