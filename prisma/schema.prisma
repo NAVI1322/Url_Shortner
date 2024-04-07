@@ -15,11 +15,13 @@ model Url {
   clickCount Int
   status String 
   createdAt DateTime
-  user_id 
+  userId  Int @unique
+  user User @relation(fields: [userId], references: [id])
 }
 
 model User {
   id      Int      @id @default(autoincrement())
   email   String   @unique
   name    String?
+  urls  Url[]
 }
