@@ -1,17 +1,10 @@
-const {Router} = require('express')
+import { Router } from "express";
 
-const router = Router()
+const router = new Router();
 
-router.post('/signup',(res)=>{
+router.get("/", (req, res) => {
+  res.send({ data: "here is your data" })
+})
 
-    console.log("sign up")
-});
+export default router;
 
-
-router.post('/signin',()=>{
-
-    console.log("signin")
-});
-
-
-module.exports= router

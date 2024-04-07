@@ -1,13 +1,11 @@
-const {Router} = require('express')
+import { Router } from "express";
+import user from "./user.js"
+import auth from "./auth/authHandler.js"
 
-const userRouter = require('./user')
-const dashRouter = require('./dashboard')
+const router = new Router();
 
+router.use("/user", user)
+router.use("/auth", auth)
 
-const router = Router()
+export default router;
 
-router.use('/user',userRouter);
-router.use('/dashboard',dashRouter);
-
-
-module.exports= router;
