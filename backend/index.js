@@ -1,29 +1,15 @@
-import { PrismaClient } from '@prisma/client'
+const express = require("express");
+const mainRoute = require('./routes');
+const cors = require("cors"); 
 
-const prisma = new PrismaClient({
-  datasources: {
-    db: {
-      url: 'postgresql://url_db_owner:p2GM0ZyQKNJR@ep-holy-breeze-a5j0f68q-pooler.us-east-2.aws.neon.tech/url_db?sslmode=require'
-    }
-  }
-});
+const app = express();
+const port = 3000;
 
-async function main() {
-  const user = await prisma.user.create({
-    data: {
-      name: 'Alice',
-      email: 'a@prisma.io',
-    },
-  })
-  console.log(user)
-}
+app.use(express.json());
+app.use(cors());
 
-main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+// Mounting the main route handler at the /api/v1 path
+app.use('/api/v1', mainRoute);
+
+// Starting the server and listening for incoming requests on port 3000
+app.listen(port, () => console.log(`Server up at ${port}`));
