@@ -1,10 +1,18 @@
-import { Router } from "express";
 
-const router = new Router();
+import { Router } from 'express';
 
-router.get("/", (req, res) => {
-  res.send({ data: "here is your data" })
-})
+const router = Router();
+
+router.post('/signup', (req, res) => {
+  console.log("Sign up");
+  // Add your sign-up logic here
+  res.send("Sign up successful"); // Example response
+});
+
+router.post('/signin', (req, res) => {
+  console.log("Sign in");
+  // Add your sign-in logic here
+  res.send("Sign in successful"); // Example response
+});
 
 export default router;
-

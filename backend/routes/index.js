@@ -1,11 +1,10 @@
-import { Router } from "express";
-import user from "./user.js"
-import auth from "./auth/authHandler.js"
+import { Router } from 'express';
+import userRouter from './user.js'; // Remove curly braces
+import dashRouter from './dashboard.js'; // Remove curly braces
 
-const router = new Router();
+const router = Router();
 
-router.use("/user", user)
-router.use("/auth", auth)
+router.use('/user', userRouter);
+router.use('/account', dashRouter);
 
 export default router;
-

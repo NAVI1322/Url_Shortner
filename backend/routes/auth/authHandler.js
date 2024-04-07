@@ -1,4 +1,5 @@
 import { Router } from "express";
+import jwt from 'jsonwebtoken'
 import prisma from "../../config/db.js"
 
 const router = new Router();
