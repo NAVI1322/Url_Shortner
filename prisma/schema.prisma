@@ -21,7 +21,9 @@ model Url {
 model User {
   id      Int      @id @default(autoincrement())
   email   String   @unique
-  name    String?
+  password String 
+  firstname    String? @db.VarChar(40)
+  lastname    String   @db.VarChar(40)
   urls  Url[]
 } 
 
