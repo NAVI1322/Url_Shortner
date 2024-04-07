@@ -1,8 +1,6 @@
-
 import { Navbar } from './components/navbar'
 import { Bottom } from './components/Bottom'
 import { Hero } from './components/Hero'
-
 import { Table } from './components/Table'
 import { ToggleDarklight } from './components/Toggle_darklight'
 

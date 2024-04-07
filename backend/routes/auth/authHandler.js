@@ -7,8 +7,10 @@ const router = new Router();
 router.get("/signup", async (req, res) => {
   const newUser = await prisma.user.create({
     data: {
-      name: 'samnit',
-      email: 'samnit@example.com',
+      firstname: 'xyz',
+      lastname: 'abc',
+      email: 'syz@example.com',
+      password: '1234',
     }
   })
   res.send({ data: "new user created", newUser })

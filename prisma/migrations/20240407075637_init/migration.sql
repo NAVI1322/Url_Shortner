@@ -3,7 +3,7 @@ CREATE TABLE "Url" (
     "id" SERIAL NOT NULL,
     "shortLink" VARCHAR(40) NOT NULL,
     "ogLink" VARCHAR(255) NOT NULL,
-    "clickCount" INTEGER NOT NULL,
+    "clickCount" INTEGER NOT NULL DEFAULT 0,
     "status" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL,
     "userId" INTEGER NOT NULL,
@@ -15,7 +15,9 @@ CREATE TABLE "Url" (
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
-    "name" TEXT,
+    "password" TEXT NOT NULL,
+    "firstname" VARCHAR(40),
+    "lastname" VARCHAR(40) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
