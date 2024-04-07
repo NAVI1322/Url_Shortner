@@ -11,7 +11,7 @@ model Url {
   id        Int    @id @default(autoincrement())
   shortLink String @db.VarChar(40)
   ogLink String @db.VarChar(255)
-  clickCount Int
+  clickCount Int @default(0)
   status String 
   createdAt DateTime
   userId  Int @unique
