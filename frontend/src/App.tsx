@@ -1,25 +1,16 @@
-import { Navbar } from './components/navbar'
-import { Bottom } from './components/Bottom'
-import { Hero } from './components/Hero'
-import { Table } from './components/Table'
-import { ToggleDarklight } from './components/Toggle_darklight'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import Login from "./pages/login";
 
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <div className="md:mt-10 md:mb-10 mt-0 mb-0">
-        <ToggleDarklight />
-        <Hero />
-      </div>
-      <div className="justify-center">
-        <Table />
-      </div>
-      <div className="fixed bottom-0 w-full flex justify-center sm:justify-center bg-gradient-to-b from-transparent/70 to-tableheadgrey">
-        <Bottom />
-      </div>
-    </div>
+   <BrowserRouter>
+   <Routes>
+    <Route path="/dashboard" element={<LandingPage />}></Route>
+    <Route path="/signup" element={<Login />}></Route>
+   </Routes>
+   </BrowserRouter>
   )
 }
 
