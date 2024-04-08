@@ -2,7 +2,7 @@ import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import axios from "axios";
 import { useState } from "react";
 
-function Login() {
+export default function Register() {
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -70,4 +70,3 @@ function Login() {
   )
 }
 
-export default Login;
