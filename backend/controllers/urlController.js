@@ -1,7 +1,7 @@
-import prisma from "../config/db";
+import prisma from "../config/db.js";
 import { nanoid } from "nanoid";
 
-const createShortUrl = async (req, res) => {
+export const createShortUrl = async (req, res) => {
   try {
     const { originalUrl } = req.body;
     const shortCode = nanoid(16);
@@ -28,7 +28,7 @@ const createShortUrl = async (req, res) => {
   }
 };
 
-const redirectToOgLink = async (req, res) => {
+export const redirectToOgUrl = async (req, res) => {
   try {
     const { shortCode } = req.params
     const url = await prisma.url.findUnique({
@@ -57,4 +57,3 @@ const redirectToOgLink = async (req, res) => {
   }
 }
 
-export default { createShortUrl, redirectToOgLink }

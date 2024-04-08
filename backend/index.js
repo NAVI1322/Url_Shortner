@@ -1,15 +1,17 @@
-
 import express from "express"
-import router from './routes/index.js';
-import cors from "cors"
+import cors from 'cors'
+
+import authRoute from "./routes/authRoute.js"
+import urlRoute from "./routes/urlRoute.js"
 
 const app = express();
+app.use(cors());
+
 const port = 3000;
 
 app.use(express.json());
 
-// Mounting the main route handler at the /api/v1 path
-app.use('/api/v1', router);
+app.use('/api/v1/auth', authRoute);
+app.use('/api/v1', urlRoute);
 
-// Starting the server and listening for incoming requests on port 3000
 app.listen(port, () => console.log(`Server up at ${port}`));
