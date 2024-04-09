@@ -15,7 +15,7 @@ export default function Register() {
       const res = await axios.post("http://localhost:3000/api/v1/auth/register", {
         firstname: firstName,
         lastname: lastName,
-        email: email,
+        email: email.toLowerCase(),
         password: password,
       })
       console.log("User created", res.data)
