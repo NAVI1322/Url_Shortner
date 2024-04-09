@@ -1,13 +1,11 @@
-
-import { Navbar } from './components/navbar'
-import { Bottom } from './components/Bottom'
-import { Hero } from './components/Hero'
-
-import { Table } from './components/Table'
-import { ToggleDarklight } from './components/Toggle_darklight'
+import { Navbar } from '../components/navbar'
+import { Bottom } from '../components/Bottom'
+import { Hero } from '../components/Hero'
+import { Table } from '../components/Table'
+import { ToggleDarklight } from '../components/Toggle_darklight'
 
 
-function App() {
+function LandingPage() {
   return (
     <div>
       <Navbar />
@@ -25,4 +23,4 @@ function App() {
   )
 }
 
-export default App;
+export default LandingPage;
