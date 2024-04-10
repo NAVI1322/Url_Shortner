@@ -1,7 +1,6 @@
 import React from 'react';
 
 interface ButtonProps {
-  onClick: () => void;
   className?: string;
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'primary-disabled' | 'secondary-disabled' | "round"

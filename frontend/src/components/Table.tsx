@@ -1,5 +1,7 @@
 import { CalendarIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export const Table = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -7,6 +9,40 @@ export const Table = () => {
   const toggleModal = () => {
     setModalOpen(!modalOpen);
   };
+
+
+  const [TableData,setTableData] = useState([{}])
+  const [params] = useSearchParams();
+ 
+  const id = params.get("id")
+
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get("http://localhost:3000/api/v1/fetchurl", {
+          params: {
+            id: id
+          },headers:{
+            Authorization:"Bearer "+localStorage.getItem("token")
+          } 
+        });
+       
+         setTableData(response.data.data);
+
+        
+       
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
+  }, []);
+
+
+  
+  
+
 
   return (
     <div className="flex items-center justify-center m-4">
@@ -28,45 +64,47 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody  >
-          <tr className="bg-tablerowgrey  text-tabletext text-sm font-thin h-[63px] dark:text-white">
-            {/* Table Data */}
-            <td className="p-4  truncate ">Row 1, Column 1</td>
-            <td className="p-4 hidden sm:table-cell ">Row 1, Column 2</td>
-            <td className="p-4 hidden sm:table-cell">Row 1, Column 3</td>
-            <td className="p-4 hidden md:table-cell">Row 1, Column 4</td>
-            <td className="p-4 hidden md:table-cell">Row 1, Column 5</td>
-            <td className="p-4">
-              {/* Toggle Button */}
-              <span className="sm:hidden">
-                {" "}
-                {/* Hide content on small screens */}
-                <button
-                  onClick={toggleModal}
-                  className=" bg-tableheadgrey rounded-full p-2 hover:ring-1 hover:ring-gray-100 ease-out duration-500  outline-none"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="w-5   h-5rounded-full  text-tabletext"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                    />
-                  </svg>
-                </button>
-              </span>
-              <span className="hidden md:inline">
-                {" "}
-                {/* Hide content on small screens */}
-                Row 1, Column 6
-              </span>
-            </td>
-          </tr>
+       {TableData.map(res=>
+        <tr className="bg-tablerowgrey  text-tabletext text-sm h-[63px] dark:text-white font-Thin">
+        {/* Table Data */}
+        <td className="p-4  truncate " ><a href={`http://localhost:3000/api/v1/Shorturl/${res.shortLink}`} target="_blank"  className="hover:to-blue-950 " >{res.shortLink}</a></td>
+        <td className="p-4 hidden sm:table-cell max-w-xs overflow-hidden overflow-ellipsis">{res.ogLink}</td>
+        <td className="p-4 hidden sm:table-cell">Null</td>
+        <td className="p-4 hidden md:table-cell">{res.clickCount}</td>
+        <td className="p-4 hidden md:table-cell">{res.status}</td>
+        <td className="p-4">
+          {/* Toggle Button */}
+          <span className="sm:hidden">
+            {" "}
+            {/* Hide content on small screens */}
+            <button
+              onClick={toggleModal}
+              className=" bg-tableheadgrey rounded-full p-2 hover:ring-1 hover:ring-gray-100 ease-out duration-500  outline-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-5   h-5rounded-full  text-tabletext"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </button>
+          </span>
+          <span className="hidden md:inline">
+            {" "}
+            {res.createdAt}
+            
+          </span>
+        </td>
+      </tr>)}
+        
         </tbody>
       </table>
 
