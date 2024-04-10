@@ -1,3 +1,4 @@
+import { Loading } from "@/components/Loading";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import axios from "axios";
 import { useState } from "react";
@@ -7,11 +8,12 @@ export default function Register() {
 
   const navigate =  useNavigate();
 
-  
+  const [loading,Setloading] = useState(true)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
     const handleSubmit = async (e: any) => {
+      Setloading(true)
       e.preventDefault();
       try {
         const response = await axios.post("http://localhost:3000/api/v1/auth/login", {
@@ -25,24 +27,30 @@ export default function Register() {
         localStorage.setItem("token",token)
     
         // Set the authorization header for subsequent requests
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
     
         // Now you can navigate to the dashboard
+        Setloading(false)
         navigate("/dashboard?id=" + response.data.id);
         console.log("User created", response.data);
       } catch (error: any) {
         console.error("Error creating user", error.response?.data);
       }
     };
+
+    setTimeout(() => {
+      Setloading(false)
+    }, 3000);
     
-  return (
+  return (<div>
+    {loading?<Loading /> : 
     <div className="flex flex-row justify-between bg-[#18181a] w-full h-screen">
       <div className="w-[50%] h-screen m-12">
         <div className="text-4xl font-sfBold text-neutral-100 inline-block p-1 bg-clip-text">Linkly</div>
       </div>
       <div className="flex flex-row items-center justify-center w-[50%] h-screen bg-[#09090b]">
         <div className="flex flex-col items-center justify-center">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} >
             <div className="flex flex-col items-center justify-center p-8 rounded-lg">
               <div className="text-slate-100 font-semi text-4xl">Login</div>
               <p className="text-neutral-400 font-Regular text-xl mt-3">Enter your email below to login to your account</p>
@@ -67,7 +75,11 @@ export default function Register() {
           </form>
         </div>
       </div>
+      
     </div >
+}
+    </div>
+  
   )
 }
 
