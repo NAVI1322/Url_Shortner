@@ -7,19 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Url {
-  id        Int    @id @default(autoincrement())
-  shortLink String @db.VarChar(40)
-  ogLink String @db.VarChar(255)
+model Url {a
+  id        String   @unique @id @default(uuid())
+  shortLink String  @unique @db.VarChar(40)
+  ogLink String @unique @db.VarChar(10000)
   clickCount Int @default(0)
-  status String 
-  createdAt DateTime
-  userId  Int @unique
+  status String
+  createdAt DateTime 
+  userId  String 
   user User @relation(fields: [userId], references: [id])
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
+  id      String     @id @default(uuid())
   email   String   @unique
   password String 
   firstname    String? @db.VarChar(40)

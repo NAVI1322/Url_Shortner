@@ -1,19 +1,19 @@
 -- CreateTable
 CREATE TABLE "Url" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "shortLink" VARCHAR(40) NOT NULL,
     "ogLink" VARCHAR(255) NOT NULL,
     "clickCount" INTEGER NOT NULL DEFAULT 0,
     "status" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL,
-    "userId" INTEGER NOT NULL,
+    "userId" TEXT NOT NULL,
 
     CONSTRAINT "Url_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "User" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "firstname" VARCHAR(40),

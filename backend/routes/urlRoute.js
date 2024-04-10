@@ -1,10 +1,13 @@
 import { Router } from "express";
-import { createShortUrl, redirectToOgUrl } from "../controllers/urlController.js"
+import { createShortUrl, fetchUrlwithid, redirectToOgUrl } from "../controllers/urlController.js"
+import { authMiddleware } from "./middleware.js";
 
-const router = new Router();
+const   router = new Router();
 
-router.post('/Shorten', createShortUrl);
+router.post('/Shorten', authMiddleware ,createShortUrl);
 
-router.get('/:shortCode', redirectToOgUrl);
+router.get('/Shorturl/:shortCode', redirectToOgUrl);
+
+router.get('/fetchurl',fetchUrlwithid);
 
 export default router;

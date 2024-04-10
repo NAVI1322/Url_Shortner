@@ -1,25 +1,40 @@
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 export default function Register() {
 
+  const navigate =  useNavigate();
+
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault()
-    try {
-      const res = await axios.post("http://localhost:3000/api/v1/auth/login", {
-        email: email,
-        password: password,
-      })
-      console.log("User created", res.data)
-    } catch (error: any) {
-      console.error("Error creating user", error.res?.data)
-    }
-  }
-
+    const handleSubmit = async (e: any) => {
+      e.preventDefault();
+      try {
+        const response = await axios.post("http://localhost:3000/api/v1/auth/login", {
+     
+          email: email,
+          password: password,
+        });
+    
+        // Assuming the token is received in the response data as `token`
+        const token = response.data.token;
+        localStorage.setItem("token",token)
+    
+        // Set the authorization header for subsequent requests
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    
+        // Now you can navigate to the dashboard
+        navigate("/dashboard?id=" + response.data.id);
+        console.log("User created", response.data);
+      } catch (error: any) {
+        console.error("Error creating user", error.response?.data);
+      }
+    };
+    
   return (
     <div className="flex flex-row justify-between bg-[#18181a] w-full h-screen">
       <div className="w-[50%] h-screen m-12">
