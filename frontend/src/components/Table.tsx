@@ -1,4 +1,4 @@
-import { CalendarIcon } from "@radix-ui/react-icons";
+import { CalendarIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -80,22 +80,9 @@ export const Table = () => {
                   {/* Hide content on small screens */}
                   <button
                     onClick={toggleModal}
-                    className=" bg-tableheadgrey rounded-full p-2 hover:ring-1 hover:ring-gray-100 ease-out duration-500  outline-none"
+                    className=" bg-Grey rounded-full p-2 hover:ring-1 hover:ring-gray-100 ease-out duration-500  outline-none"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      className="w-5   h-5rounded-full  text-tabletext"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                      />
-                    </svg>
+                    <ChevronDownIcon />
                   </button>
                 </span>
                 <span className="hidden md:inline">
