@@ -20,7 +20,7 @@ export default {
         primaryPink: "#EB568E",
         primaryBlue: "#144EE3",
         Black: "#0B101B",
-        Grey: "#181E29",
+        Grey: "#181E2980",
         White: "#C9CED6",
         tablerowgrey: '#181E2938',
         tableheadgrey: '#181E29',

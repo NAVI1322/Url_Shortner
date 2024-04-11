@@ -1,7 +1,7 @@
 import Button from "./button";
 import { faLink, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 
@@ -13,11 +13,11 @@ export const Inputbar = () => {
   const [error, setError] = useState(false);
 
 
-  const closeModal = () =>{
+  const closeModal = () => {
     setError(false)
   }
 
-  function isValidHttpUrl(string:string) {
+  function isValidHttpUrl(string: string) {
     try {
       const newUrl = new URL(string);
       return newUrl.protocol === 'http:' || newUrl.protocol === 'https:';
@@ -26,15 +26,13 @@ export const Inputbar = () => {
     }
   }
 
-
   const handleClick = async () => {
+    console.log("hello")
     try {
-   
-      if ( !isValidHttpUrl(urlInput)) {
+      if (!isValidHttpUrl(urlInput)) {
         setError(true); // Set error state if URL pattern doesn't match
         return; // Stop further execution
       }
-      
 
       await axios.post(
         "http://localhost:3000/api/v1/Shorten",
@@ -62,23 +60,19 @@ export const Inputbar = () => {
       <Button variant="secondary" className="w-full border-4 px-[4px] py-[4px]">
         <FontAwesomeIcon className="m-4 mr-2" icon={faLink} />
         <input
-          style={{ fontFamily: "Light" }}
+          style={{ fontFamily: 'Light' }}
           className="bg-Grey w-full focus:outline-none tracking-wide text-md"
-          onChange={(e) => SetUrlInput(e.target.value)}
           placeholder="Enter the link here"
+          onChange={(e) => SetUrlInput(e.target.value)}
         />
-        <div onClick={handleClick} className="m-0 w-56 hidden sm:flex">
-          <Button variant="primary" className="m-0 w-56 hidden sm:flex">
-            Shorten Now!
-          </Button>
-        </div>
-        <div onClick={handleClick}>
-          <Button variant="round" className="sm:hidden">
-            <FontAwesomeIcon icon={faArrowRight} />
-          </Button>
-        </div>
+        <Button onClick={handleClick} variant="primary" className="z-10 m-0 w-56 hidden sm:flex">
+          Shorten Now!
+        </Button>
+        <Button onClick={handleClick} variant="round" className="z-10 sm:hidden">
+          <FontAwesomeIcon icon={faArrowRight} />
+        </Button>
       </Button>
-      {error &&   <div className={`fixed z-10 inset-0 overflow-y-auto  ${error ? '' : 'hidden'}`}>
+      {error && <div className={`fixed z-10 inset-0 overflow-y-auto  ${error ? '' : 'hidden'}`}>
         <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center  sm:block sm:p-0" >
           <div className="fixed inset-0 transition-opacity" aria-hidden="true">
             <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
