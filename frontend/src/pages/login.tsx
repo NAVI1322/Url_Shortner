@@ -17,11 +17,10 @@ export default function Register() {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:3000/api/v1/auth/login", {
-
-        email: email,
+        email: email.toLowerCase(),
         password: password,
       });
-
+      console.log(response)
       // Assuming the token is received in the response data as `token`
       const token = response.data.token;
       localStorage.setItem("token", token)
@@ -40,7 +39,7 @@ export default function Register() {
 
   setTimeout(() => {
     Setloading(false)
-  }, 3000);
+  }, 1000);
 
   return (
     <div>
