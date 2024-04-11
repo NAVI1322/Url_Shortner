@@ -51,7 +51,7 @@ export default function Register() {
               src="../../public/blur.jpg"
               alt="no img"
             />
-            <div className="text-4xl m-12 font-sfBold text-neutral-100 inline-block p-1 bg-clip-text absolute top-0 left-0">
+            <div className="text-4xl m-12 font-sfBold text-neutral-100 sm:hidden md:flex  inline-block p-1 bg-clip-text absolute top-0 left-0">
               Linkly
             </div>
           </div>
