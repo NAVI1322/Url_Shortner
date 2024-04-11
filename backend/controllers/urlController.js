@@ -1,17 +1,13 @@
-import { query } from "express";
 import prisma from "../config/db.js";
 import { nanoid } from "nanoid";
 
 export const createShortUrl = async (req, res) => {
 
-
   try {
+
     const { originalUrl } = req.body;
     const userId = req.body.user.id
-
     const shortCode = nanoid(8);
-
-
 
     const url = await prisma.url.create({
       data: {
@@ -35,12 +31,9 @@ export const createShortUrl = async (req, res) => {
   }
 };
 
-
-
 export const redirectToOgUrl = async (req, res) => {
   try {
     const { shortCode } = req.params
-
 
     const url = await prisma.url.findUnique({
       where: {
@@ -71,14 +64,9 @@ export const redirectToOgUrl = async (req, res) => {
   }
 }
 
-
-
-
-
 export const fetchUrlwithid = async (req, res) => {
   try {
     const userId = req.query.id;
-
 
     // Assuming 'url' is your Prisma model representing URLs
     const response = await prisma.user.findFirst({

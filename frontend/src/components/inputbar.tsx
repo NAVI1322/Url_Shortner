@@ -17,7 +17,7 @@ export const Inputbar = () => {
     setError(false)
   }
 
-  function isValidHttpUrl(string: string) {
+  const isValidHttpUrl = async (string: string) => {
     try {
       const newUrl = new URL(string);
       return newUrl.protocol === 'http:' || newUrl.protocol === 'https:';
@@ -27,7 +27,6 @@ export const Inputbar = () => {
   }
 
   const handleClick = async () => {
-    console.log("hello")
     try {
       if (!isValidHttpUrl(urlInput)) {
         setError(true); // Set error state if URL pattern doesn't match

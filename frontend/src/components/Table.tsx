@@ -26,7 +26,19 @@ export const Table = () => {
           }
         });
 
+        const copyToClipboard = async (text: string) => {
+          try {
+            await navigator.clipboard.writeText(text);
+          } catch (error) {
+            console.error('Failed to copy text to clipboard:', error);
+          }
+        };
+
+        const requestUrl = response.config.url;
+        const { protocol, host, } = new URL(requestUrl);
+
         setTableData(response.data.data);
+        copyToClipboard(`${protocol}//${host}/${response.data.data[0].shortLink}`);
 
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -68,7 +80,7 @@ export const Table = () => {
           {TableData.map(res =>
             <tr className="bg-tablerowgrey text-White  text-md h-[63px] dark:text-White font-Light">
               {/* Table Data */}
-              <td className="p-4  truncate " ><a href={`http://localhost:3000/api/v1/Shorturl/${res.shortLink}`} target={`http://localhost:3000/api/v1/Shorturl/${res.shortLink}`} className="hover:to-blue-950 " >{res.shortLink}</a></td>
+              <td className="p-4  truncate " ><a href={`http://localhost:3000/${res.shortLink}`} target={`http://localhost:3000/${res.shortLink}`} className="hover:to-blue-950 " >{res.shortLink}</a></td>
               <td className="p-4 hidden sm:table-cell max-w-xs overflow-hidden overflow-ellipsis">{res.ogLink}</td>
               <td className="p-4 hidden sm:table-cell">Null</td>
               <td className="p-4 hidden md:table-cell">{res.clickCount}</td>
