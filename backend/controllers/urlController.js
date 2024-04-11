@@ -4,13 +4,13 @@ import { nanoid } from "nanoid";
 
 export const createShortUrl = async (req, res) => {
 
- 
+
   try {
     const { originalUrl } = req.body;
     const userId = req.body.user.id
 
     const shortCode = nanoid(8);
-   
+
 
 
     const url = await prisma.url.create({
@@ -18,17 +18,18 @@ export const createShortUrl = async (req, res) => {
         ogLink: originalUrl,
         shortLink: shortCode,
         clickCount: 0,
-        status: 'pending',
+        status: 'Active',
         createdAt: new Date(),
         userId: userId,
       }
     })
 
     res.status(201).json({
-      message:"short url created Successfully",
-      shortUrl:shortCode })
+      message: "short url created Successfully",
+      shortUrl: shortCode
+    })
   }
-  catch (err) { 
+  catch (err) {
     console.error("Error creating url", err)
     res.status(500).json({ error: "Internal server err" })
   }
@@ -39,8 +40,8 @@ export const createShortUrl = async (req, res) => {
 export const redirectToOgUrl = async (req, res) => {
   try {
     const { shortCode } = req.params
-    
-    
+
+
     const url = await prisma.url.findUnique({
       where: {
         shortLink: shortCode,
@@ -62,7 +63,7 @@ export const redirectToOgUrl = async (req, res) => {
         },
       },
     });
-    
+
     res.redirect(url.ogLink)
   } catch (err) {
     console.error("Error redirecting to Original Link", err)
@@ -84,8 +85,8 @@ export const fetchUrlwithid = async (req, res) => {
       where: {
         id: userId,
       },
-      select:{
-        urls:true
+      select: {
+        urls: true
       }
     });
 
