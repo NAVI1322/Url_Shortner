@@ -92,3 +92,15 @@ export const fetchUrlwithid = async (req, res) => {
     });
   }
 };
+
+
+// export const deleteUrlWithId = async (req,res) =>{
+// try{
+//   const response = await prisma.user.delete({
+//     where:{
+      
+//     }
+//   })
+// }
+  
+// }
