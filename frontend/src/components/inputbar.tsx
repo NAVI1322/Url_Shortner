@@ -20,7 +20,7 @@ export const Inputbar = () => {
 
 
 
-  const stringIsAValidUrl = (s:string) => {
+  const stringIsAValidUrl = (s: string) => {
     try {
       new URL(s);
       return true;
@@ -32,7 +32,7 @@ export const Inputbar = () => {
   const handleClick = async () => {
     try {
 
-   
+
       if (!stringIsAValidUrl(urlInput)) {
         setError(true); // Set error state if URL pattern doesn't match
         return; // Stop further execution
@@ -69,16 +69,12 @@ export const Inputbar = () => {
           placeholder="Enter the link here"
           onChange={(e) => SetUrlInput(e.target.value)}
         />
-       <div onClick={handleClick}>
-       <Button  variant="primary" className="z-10 m-0 w-56 hidden sm:flex">
+        <Button onClick={handleClick} variant="primary" className="z-10 m-0 w-56 hidden sm:flex">
           Shorten Now!
         </Button>
-       </div>
-       <div onClick={handleClick}>
-       <Button variant="round" className="z-10 sm:hidden">
+        <Button onClick={handleClick} variant="round" className="z-10 sm:hidden">
           <FontAwesomeIcon icon={faArrowRight} />
         </Button>
-       </div>
       </Button>
       {error && <div className={`fixed z-10 inset-0 overflow-y-auto  ${error ? '' : 'hidden'}`}>
         <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center  sm:block sm:p-0" >

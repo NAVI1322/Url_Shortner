@@ -9,18 +9,14 @@ import { useSearchParams } from 'react-router-dom'
 
 function LandingPage() {
 
-
-const [user,Setuser] = useState(false);
-
-const [params] = useSearchParams();
+  const [user, Setuser] = useState(false);
+  const [params] = useSearchParams();
 
   const id = params.get("id")
-  useEffect(()=>{
-    if(!id)
-  {
-    Setuser(true)
-  }
-
+  useEffect(() => {
+    if (!id) {
+      Setuser(true)
+    }
   })
 
   return (
@@ -33,7 +29,7 @@ const [params] = useSearchParams();
       <div className="justify-center">
         <Table />
       </div>
-      <div className= {user?"fixed bottom-0 w-full flex justify-center sm:justify-center bg-gradient-to-b from-transparent/70 to-tableheadgrey":"hidden"}>
+      <div className={user ? "fixed bottom-0 w-full flex justify-center sm:justify-center bg-gradient-to-b from-transparent/70 to-tableheadgrey" : "hidden"}>
         <Bottom />
       </div>
     </div>
