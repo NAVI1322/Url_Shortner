@@ -5,7 +5,7 @@ import { Table } from '../components/Table'
 import { ToggleDarklight } from '../components/Toggle_darklight'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import '../index.css';
+import '../index.css'
 
 
 
@@ -27,7 +27,7 @@ function LandingPage({ handleCheckboxChange, isChecked, theme }: any) {
   return (
 
 
-    <div>
+    <div className=''>
       <Navbar theme={theme} />
       <div className="md:mt-10 md:mb-10 mt-0 mb-0">
         <ToggleDarklight handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} theme={theme} />
@@ -37,7 +37,7 @@ function LandingPage({ handleCheckboxChange, isChecked, theme }: any) {
         <Table theme={theme} />
       </div>
 
-      <div className={user ? "fixed bottom-0 w-full flex justify-center sm:justify-center bg-gradient-to-b from-transparent/70 to-tableheadgrey" : "hidden"}>
+      <div className={user ? "fixed bottom-0 w-full flex justify-center sm:justify-center  bg-gradient-to-b from-transparent/70 to-slate-100  dark:bg-gradient-to-b dark:from-transparent/70 dark:to-tableheadgrey" : "hidden"}>
         <Bottom theme={theme} />
       </div>
     </div>

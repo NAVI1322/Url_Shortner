@@ -69,10 +69,10 @@ export const Inputbar = ({ theme }: any) => {
           placeholder="Enter the link here"
           onChange={(e) => SetUrlInput(e.target.value)}
         />
-        <Button onClick={handleClick} variant="primary" className="z-10 m-0 w-56 hidden sm:flex">
+        <Button onClick={handleClick} variant="primary" className="m-0 w-56 hidden sm:flex">
           Shorten Now!
         </Button>
-        <Button onClick={handleClick} variant="round" className="z-10 sm:hidden">
+        <Button onClick={handleClick} variant="round" className="sm:hidden">
           <FontAwesomeIcon icon={faArrowRight} />
         </Button>
       </Button>
