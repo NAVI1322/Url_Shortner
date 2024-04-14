@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 
-export const Inputbar = () => {
+export const Inputbar = ({ theme }: any) => {
   const [params] = useSearchParams();
   const id = params.get("id");
   const [urlInput, SetUrlInput] = useState("");
@@ -60,12 +60,12 @@ export const Inputbar = () => {
   };
 
   return (
-    <div className="w-full sm:w-4/5 md:w-2/5 lg:w-1/2  flex flex-row gap-2 justify-center ">
+    <div className={`w-full sm:w-4/5 md:w-2/5 lg:w-1/2  flex flex-row gap-2 justify-center ${theme && "dark"}`}>
       <Button variant="secondary" className="w-full border-4 px-[4px] py-[4px]">
-        <FontAwesomeIcon className="m-4 mr-2" icon={faLink} />
+        <FontAwesomeIcon className="m-4 mr-2 " icon={faLink} />
         <input
           style={{ fontFamily: 'Light' }}
-          className="bg-Grey w-full focus:outline-none tracking-wide text-md"
+          className="bg-[#8d8d8d] dark:bg-[#5f5f5f] w-full focus:outline-none tracking-wide text-md placeholder:text-white"
           placeholder="Enter the link here"
           onChange={(e) => SetUrlInput(e.target.value)}
         />
