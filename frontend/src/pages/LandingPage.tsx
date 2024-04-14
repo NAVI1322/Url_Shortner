@@ -28,7 +28,7 @@ const [params] = useSearchParams();
   return (
    
 
-    <div className='h-screen'>
+    <div className=''>
       <Navbar theme={theme} />
       <div className="md:mt-10 md:mb-10 mt-0 mb-0">
         <ToggleDarklight handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} theme={theme}/>
@@ -37,7 +37,7 @@ const [params] = useSearchParams();
       <div className="justify-center">
         <Table theme={theme}/>
       </div>
-      <div className= {user?"fixed bottom-0 w-full flex justify-center sm:justify-center bg-white dark:bg-gradient-to-b from-transparent/70 to-tableheadgrey":"hidden"}>
+      <div className= {user?"fixed bottom-0 w-full flex justify-center sm:justify-center  bg-gradient-to-b from-transparent/70 to-slate-100  dark:bg-gradient-to-b dark:from-transparent/70 dark:to-tableheadgrey":"hidden"}>
         <Bottom theme={theme} />
       </div>
     </div>

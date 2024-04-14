@@ -68,7 +68,7 @@ export const Table = ({ theme }: any) => {
       {/* Table */}
       <table className="table-auto md:w-[84%] rounded-t-lg overflow-hidden w-[376px] text-sm  ">
         <thead className="h-[63px] text-sm">
-          <tr className="text-left text-md  dark:bg-tableheadgrey bg-[#4b4b4b] text-tabletext  text-white dark:text-white  ">
+          <tr className="text-left text-md  dark:bg-tableheadgrey bg-[#4b4b4b] text-tabletext  text-white dark:text-white font-thin ">
             {/* Table Headers */}
             <th className="p-4 font-sfBold text-white">Short Link</th>
             <th className="p-4 hidden font-sfBold text-white sm:table-cell">
@@ -93,9 +93,9 @@ export const Table = ({ theme }: any) => {
         </thead>
         <tbody>
           {TableData.map((res) => (
-            <tr className="bg-tablerowgrey text-White  text-md h-[63px] dark:text-White font-Light">
+            <tr className="bg-tablerowgrey  text-md h-[63px]  dark:text-White text-slate-700 ">
               {/* Table Data */}
-              <td className="p-4  truncate dark:text-white text-slate-500 font-mid ">
+              <td className="p-4  truncate dark:text-white  ">
                 <a
                   href={`http://localhost:3000/${res.shortLink}`}
                   target={`http://localhost:3000/${res.shortLink}`}
@@ -104,7 +104,7 @@ export const Table = ({ theme }: any) => {
                   {res.shortLink}
                 </a>
               </td>
-              <td className="p-4 hidden sm:table-cell max-w-xs overflow-hidden overflow-ellipsis dark:text-white text-slate-500 font-mid">
+              <td className="p-4 hidden sm:table-cell max-w-xs overflow-hidden overflow-ellipsis dark:text-white ">
                 {res.ogLink}
               </td>
               <td className="p-4 hidden sm:table-cell">
@@ -114,13 +114,13 @@ export const Table = ({ theme }: any) => {
                   onClick={() => Setsize(size < 120 ? size + 10 : size)}
                 />
               </td>
-              <td className="p-4 hidden md:table-cell dark:text-white text-slate-500 font-mid">
+              <td className="p-4 hidden md:table-cell dark:text-white text-slate-500 ">
                 {res.clickCount}
               </td>
-              <td className="p-4 hidden md:table-cell text-green-500 font-mid">
+              <td className="p-4 hidden md:table-cell text-green-500 ">
                 {res.status}
               </td>
-              <td className="p-4 dark:text-white text-slate-500 font-mid">
+              <td className="p-4 dark:text-white text-slate-500 ">
                 {/* Toggle Button */}
                 <span className="sm:hidden">
                   {" "}
