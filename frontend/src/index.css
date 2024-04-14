@@ -31,14 +31,14 @@
 src:url("/font/SF-Pro-Display-Semibold.otf")
 }
 
-
+/* 0c101b dark*/
 @layer base {
-  html, body {
+   body {
     font-family: "Regular", system-ui, sans-serif;
-    background-color: #0c101b;
+    background-color: #ffffff;
+    
   }
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+
 
