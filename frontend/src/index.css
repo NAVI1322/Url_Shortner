@@ -35,10 +35,19 @@ src:url("/font/SF-Pro-Display-Semibold.otf")
 @layer base {
    body {
     font-family: "Regular", system-ui, sans-serif;
-    background-color: #ffffff;
+    background-color:#0c101b ;
     
   }
 }
 
 
 
+.dark {
+  background-color: #0c101b;
+  color: white; /* Adjust text color for dark mode */
+}
+
+.light {
+  background-color: white;
+  color: black; /* Adjust text color for light mode */
+}
