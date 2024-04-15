@@ -82,7 +82,7 @@ export const Table = ({ theme }: any) => {
   };
 
   return (
-    <div className={`flex items-center justify-center m-4 ${theme && "dark"}`}>
+    <div className={`flex items-center justify-center m-4   ${theme && "dark"}` } >
       {/* Table */}
       <table className="table-auto md:w-[84%] rounded-t-lg overflow-hidden w-[376px] text-sm  ">
         <thead className="h-[63px] text-sm">
@@ -181,7 +181,7 @@ export const Table = ({ theme }: any) => {
                 </svg>
               </div>
               <hr />
-               
+
               {loading?<div>
       <div className="flex space-x-2 justify-center items-center bg-white w-64 h-52 dark:invert rounded-lg">
 
