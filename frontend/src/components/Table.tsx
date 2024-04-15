@@ -171,7 +171,7 @@ export const Table = ({ theme }: any) => {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6 cursor-pointer hover:text-slate-200"
+                  className="w-6 h-6 cursor-pointer hover:text-red-700 dark:hover:text-red-500  text-slate-300 dark:text-slate-300"
                 >
                   <path
                     stroke-linecap="round"
