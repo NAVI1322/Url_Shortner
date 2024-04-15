@@ -28,9 +28,9 @@ function LandingPage({ handleCheckboxChange, isChecked, theme }: any) {
 
 
     <div className=''>
-      <Navbar theme={theme} />
+      <Navbar theme={theme}  ToggleDarklight handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} />
       <div className="md:mt-10 md:mb-10 mt-0 mb-0">
-        <ToggleDarklight handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} theme={theme} />
+        <div className='fixed right-0 rotate-90 top-64 hidden md:flex '><ToggleDarklight ToggleDarklight handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} theme={theme}  /></div>
         <Hero theme={theme} />
       </div>
       <div className="justify-center">

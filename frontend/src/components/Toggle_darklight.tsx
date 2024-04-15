@@ -1,7 +1,7 @@
 export const ToggleDarklight = ({ handleCheckboxChange, isChecked, theme }: any) => {
   
   return (
-    <div className={`fixed right-0 rotate-90 top-64 hidden md:flex ${theme && "dark"}  `}>
+    <div className={`${theme && "dark"}  `}>
       <label
         className={"themeSwitcherTwo shadow-card relative inline-flex cursor-pointer select-none items-center justify-center ring-1  ring-[#7f8795] rounded-full dark:bg-tableheadgrey bg-[#8d8d8d] p-1"}
       >

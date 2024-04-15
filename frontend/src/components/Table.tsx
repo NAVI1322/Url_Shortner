@@ -4,19 +4,24 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import QRCode from "qrcode.react";
 
+
 export const Table = ({ theme }: any) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [size, Setsize] = useState(70);
+  const [modalData,SetmodalData] = useState({});
+  const [loading,Setloading]=useState(false);
 
   const toggleModal = () => {
+    
     setModalOpen(!modalOpen);
+    Setloading(true)
   };
 
   const [TableData, setTableData] = useState([{}]);
   const [params] = useSearchParams();
 
   const id = params.get("id");
-  console.log(TableData)
+ 
   useEffect(() => {
     async function fetchData() {
       try {
@@ -31,6 +36,7 @@ export const Table = ({ theme }: any) => {
             },
           }
         );
+    
 
         const copyToClipboard = async (text: string) => {
           try {
@@ -44,6 +50,7 @@ export const Table = ({ theme }: any) => {
         const { protocol, host } = new URL(requestUrl);
 
         setTableData(response.data.data);
+        
         copyToClipboard(
           `${protocol}//${host}/${response.data.data[0].shortLink}`
         );
@@ -53,6 +60,17 @@ export const Table = ({ theme }: any) => {
     }
     fetchData();
   }, []);
+
+
+   async function handlemodaldata(shortId:string)
+   {
+      Setloading(true)
+      const res = await axios(`http://localhost:3000/api/v1/Getdata/${shortId}`)
+      SetmodalData(res.data.data)
+        Setloading(false)
+
+   }
+
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -92,7 +110,7 @@ export const Table = ({ theme }: any) => {
           </tr>
         </thead>
         <tbody>
-          {TableData.map((res) => (
+          {TableData.map((res ) => (
             <tr className="bg-tablerowgrey  text-md h-[63px]  dark:text-White text-slate-700 ">
               {/* Table Data */}
               <td className="p-4  truncate dark:text-white  ">
@@ -101,7 +119,7 @@ export const Table = ({ theme }: any) => {
                   target={`http://localhost:3000/${res.shortLink}`}
                   className="hover:to-blue-950 "
                 >
-                  {res.shortLink}
+                  {res.shortLink }
                 </a>
               </td>
               <td className="p-4 hidden sm:table-cell max-w-xs overflow-hidden overflow-ellipsis dark:text-white ">
@@ -129,7 +147,7 @@ export const Table = ({ theme }: any) => {
                     onClick={toggleModal}
                     className=" bg-Grey rounded-full p-2 hover:ring-1 hover:ring-gray-100 ease-out duration-500  outline-none"
                   >
-                    <ChevronDownIcon />
+                    <ChevronDownIcon width="22px" height="22px" className="text-black dark:text-slate-200" onClick={()=>{handlemodaldata(res.shortLink)}} />
                   </button>
                 </span>
                 <span className="hidden md:inline">
@@ -144,8 +162,7 @@ export const Table = ({ theme }: any) => {
 
       {/* Modal */}
       {modalOpen &&
-        TableData.slice().reverse().map((res) => (
-          <div className="fixed inset-0 flex items-center justify-center bg-gray-400 bg-opacity-75 ">
+          <div className="fixed inset-0 flex items-center justify-center   bg-gray-400 bg-opacity-75 ">
             <div className=" rounded-md bg-tableheadgrey  text-tabletext  font-thin">
               <div onClick={toggleModal} className="flex justify-end p-2 ">
                 <svg
@@ -164,38 +181,51 @@ export const Table = ({ theme }: any) => {
                 </svg>
               </div>
               <hr />
-              <div className="max-w-sm p-6 bg-white  flex space-y-5 flex-col items-center text-center border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <QRCode
-                  size={size}
-                  value={res.ogLink}
-                  onClick={() => Setsize(size < 120 ? size + 10 : size)}
-                />
+               
+              {loading?<div>
+      <div className="flex space-x-2 justify-center items-center bg-white w-64 h-52 dark:invert rounded-lg">
 
-                <div>
-                  <h4 className="mb-2 text-md font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {res.shortLink}
-                  </h4>
-                </div>
-                <div>
-                  {" "}
-                  <h5 className="mb-2 truncate font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {res.ogLink}
-                  </h5>
-                </div>
+        <div className="h-5 w-5 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+        <div className="h-5 w-5 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+        <div className="h-5 w-5 bg-black rounded-full animate-bounce"></div>
+      </div>
+    </div>:
+              <div className="max-w-sm p-6 bg-white  flex space-y-5 flex-col items-center text-center border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+               
+              <QRCode
+              size={size}
+              value={modalData.ogLink}
+              onClick={() => Setsize(size < 120 ? size + 10 : size)}
+              />
 
-                <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
-                  CLICKS : {res.clickCount}
-                </p>
-                <a
-                  href="#"
-                  className="inline-flex font-medium items-center text-blue-600 hover:underline"
-                >
-                  {res.status}
-                </a>
+  
+              <div>
+                <h4 className="mb-2 text-md font-semibold tracking-tight text-gray-900 dark:text-white">
+                  {modalData.shortLink}
+                </h4>
               </div>
+              <div className="mb-2  font-semibold tracking-tight text-gray-900 dark:text-white overflow-hidden">
+                {modalData.ogLink}
+              </div>
+
+
+              <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+                CLICKS : {modalData.clickCount}
+              </p>
+              <a
+                href="#"
+                className="inline-flex font-medium items-center text-blue-600 hover:underline"
+              >
+                {modalData.status}
+              </a>
+            </div>
+        
+
+              }
+
             </div>
           </div>
-        ))}
+        }
     </div>
   );
 };

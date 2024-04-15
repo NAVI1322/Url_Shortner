@@ -94,6 +94,39 @@ export const fetchUrlwithid = async (req, res) => {
 };
 
 
+
+export  async  function  fetchDataWithShortId(req , res)
+{
+  const { shortlink } = req.params
+
+ try{
+  const response = await prisma.url.findFirst({
+    where:{
+      shortLink : shortlink
+    },
+    select:{
+      ogLink:true,
+      clickCount:true,
+      status:true,
+      shortLink:true
+    }
+  })
+  console.log(response)
+  res.status(200).json({
+    message:"data fetched by short url ",
+    data : response,
+  })
+  
+ }
+ catch(e)
+{
+  console.log("error : " + e)
+  res.status(411).json({
+    message:"error while fetching data via short link"
+  })
+}
+}
+
 // export const deleteUrlWithId = async (req,res) =>{
 // try{
 //   const response = await prisma.user.delete({
