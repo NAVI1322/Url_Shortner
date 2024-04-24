@@ -1,4 +1,4 @@
-Sure! Below is the revised README.md file with the setup instructions for the URL shortener project with PostgreSQL database connected through Prisma:
+
 
 ```markdown
 # URL Shortener Project
