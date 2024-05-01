@@ -1,8 +1,23 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Inputbar } from "./inputbar";
 import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export function Hero({theme}:any) {
+
+  const [user,Setuser] = useState(false);
+
+const [params] = useSearchParams();
+
+  const id = params.get("id")
+  useEffect(()=>{
+    if(!id)
+  {
+    Setuser(true)
+  }
+
+  })
 
   return (
     <div className={` flex items-center justify-center flex-col text-White ${theme && "dark"} `}>
@@ -27,7 +42,7 @@ export function Hero({theme}:any) {
             </span>
           </label>
         </div>
-        <div className="dark:text-White text-md font-Light items-center inline-block text-center text-slate-600">
+        <div className={user?"dark:text-White text-md font-Light items-center inline-block text-center text-slate-600":"hidden"}>
           You can create <span className="text-pink-600 font-bold mx-1">05</span> more links. <span className=" md:no-underline underline font-Bold text-slate-600 dark:text-white">Register Now </span> to enjoy Unlimited usage
           <FontAwesomeIcon className="ml-1" icon={faCircleQuestion} />
         </div>

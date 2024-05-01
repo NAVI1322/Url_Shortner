@@ -4,6 +4,7 @@ import cors from 'cors'
 import authRoute from "./routes/authRoute.js"
 import urlRoute from "./routes/urlRoute.js"
 import { redirectToOgUrl } from "./controllers/urlController.js";
+const port = process.env.PORT || 4000;
 
 const app = express();
 app.use(cors());

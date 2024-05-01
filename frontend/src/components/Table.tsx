@@ -8,7 +8,7 @@ import QRCode from "qrcode.react";
 export const Table = ({ theme }: any) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [size, Setsize] = useState(70);
-  const [modalData,SetmodalData] = useState({});
+  const [modalData,SetmodalData]:any = useState({});
   const [loading,Setloading]=useState(false);
 
   const toggleModal = () => {
@@ -46,8 +46,20 @@ export const Table = ({ theme }: any) => {
           }
         };
 
+       
+        let protocol: string | undefined;
+        let host: string | undefined;
+        
         const requestUrl = response?.config.url;
-        const { protocol, host } = new URL(requestUrl);
+        
+        if (requestUrl) {
+          const url = new URL(requestUrl);
+          protocol = url.protocol;
+          host = url.host;
+        } else {
+          console.error('Request URL is undefined');
+        }
+        
 
         setTableData(response.data.data);
         
@@ -60,6 +72,8 @@ export const Table = ({ theme }: any) => {
     }
     fetchData();
   }, []);
+
+
 
 
    async function handlemodaldata(shortId:string)
@@ -110,7 +124,7 @@ export const Table = ({ theme }: any) => {
           </tr>
         </thead>
         <tbody>
-          {TableData.map((res ) => (
+          {TableData.map((res:any ) => (
             <tr className="bg-tablerowgrey  text-md h-[63px]  dark:text-White text-slate-700 ">
               {/* Table Data */}
               <td className="p-4  truncate dark:text-white  ">
