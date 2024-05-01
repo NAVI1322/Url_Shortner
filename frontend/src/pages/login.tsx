@@ -97,7 +97,7 @@ export default function Register() {
                   <div className="w-full mt-4">
                     <button
                       type="submit"
-                      className="text-[#181E298] bg-slate-100 font-semi text-xl p-3 w-full rounded-lg "
+                      className="text-[#181E298] bg-slate-100 font-semi text-xl p-3 w-full rounded-lg  dark:text-black text-white"
                     >
                       Login
                     </button>
@@ -111,7 +111,7 @@ export default function Register() {
                   <div className="flex flex-row justify-center w-full mt-4 font-Regular text-xl text-slate-100">
                     <p>
                       Don't have an account?{" "}
-                      <span className="underline">Sign Up</span>
+                      <a href="/register" className="underline">Sign Up</a>
                     </p>
                   </div>
                 </div>

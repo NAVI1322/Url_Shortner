@@ -2,7 +2,8 @@ import bcrypt from "bcrypt";
 import prisma from "../config/db.js";
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = "ultra-strong-secret-512-BIT-encryption"
+
+ const JWT_SECRET = process.env.JWT_SECRET;
 
 const hashPass = async (plainPass) => {
   const salt = await bcrypt.genSalt(10);
