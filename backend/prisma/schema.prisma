@@ -7,7 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Url {a
+model Url { 
   id        String   @unique @id @default(uuid())
   shortLink String  @unique @db.VarChar(40)
   ogLink String @unique @db.VarChar(10000)

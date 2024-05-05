@@ -38,8 +38,8 @@ export default function Register() {
       // Now you can navigate to the dashboard
       navigate("/dashboard?id=" + response.data.id);
       console.log("User created", response.data);
-    } catch (error: any) {
-      console.error("Error creating user", error.res?.data);
+    } catch (error) {
+      console.error("Error creating user", error);
     }
   };
 
