@@ -47,13 +47,11 @@ prisma init
    - Follow the prompts to set up Prisma with your database.
 
 5. Run the migaration query:
-
-   ```bash
+```bash
 npx prisma migrate dev
 ```
 
 6. Generate Prisma Client:
-
 ```bash
 npx prisma generate
 ```
