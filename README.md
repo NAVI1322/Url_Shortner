@@ -46,26 +46,10 @@ prisma init
 
    - Follow the prompts to set up Prisma with your database.
 
-5. Define Prisma Schema:
-   - Define your database schema in `schema.prisma` file. Example:
+5. Run the migaration query:
 
-```prisma
-// schema.prisma
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
-generator client {
-  provider = "prisma-client-js"
-}
-
-model Url {
-  id        Int      @id @default(autoincrement())
-  longUrl   String
-  shortUrl  String   @unique
-  createdAt DateTime @default(now())
-}
+   ```bash
+npx prisma migrate dev
 ```
 
 6. Generate Prisma Client:
@@ -76,16 +60,34 @@ npx prisma generate
 
 7. Start the Application:
 
+Go to Frontend dir
 ```bash
-npm start
+cd frontend
 ```
+then,
+start the application
+```bash
+npm run dev
+```
+
+Go to Backend dir
+```bash
+cd Backend
+```
+then,
+start the application
+```bash
+npm run dev
+```
+
 
 ## Usage
 - Once the application is running, you can access the URL shortener service through its API endpoints to shorten and manage URLs.
-- Use appropriate HTTP methods (e.g., POST for shortening a URL, GET for accessing a shortened URL) to interact with the service.
+- Make personalized shortUrl share with friends or can directly implement in your application
+
 
 ## Contributors
-- Naveet (https://github.com/NAVI1322)
+- Navneet (https://github.com/NAVI1322)
 
 ```
 
