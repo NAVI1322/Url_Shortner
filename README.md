@@ -75,7 +75,7 @@ cd Backend
 then,
 start the application
 ```bash
-npm run dev
+npx nodemon index.js
 ```
 
 
